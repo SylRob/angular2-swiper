@@ -72,6 +72,7 @@ export class KSSwiperContainer {
 export class KSSwiperSlide {
 
   private ele: HTMLElement;
+  private swiper: KSSwiperContainer;
 
   constructor(
     @Inject(ElementRef) elementRef: ElementRef,
@@ -79,7 +80,10 @@ export class KSSwiperSlide {
   ) {
     this.ele = elementRef.nativeElement;
     this.ele.classList.add('swiper-slide');
+    this.swiper = swiper;
+  }
 
-    swiper.update();
+  ngOnInit() {
+    this.swiper.update();
   }
 }
